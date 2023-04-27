@@ -7,9 +7,16 @@ import 'package:http/http.dart' as http;
 
 class ApiProductsSource {
 
-   Future<List<Product>> getProducts() async {
+  Future<List<Product>> getProducts() async {
     try {
-     // todo aller chercher les produits à l'aide d'une requête vers l'API
+      final apiUrl = Uri.parse(FurnitureEndPoints.productsEndPoint);
+
+      final response = await http.get(apiUrl);
+
+      final responseBody = json.decode(response.body) as List;
+
+      List<Product> products = responseBody.map((product) => Product.fromJson(product)).toList();
+      return products;
 
     } catch (e) {
       throw Exception('Failed to load');

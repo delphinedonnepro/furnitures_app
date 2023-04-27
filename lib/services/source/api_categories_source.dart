@@ -7,7 +7,14 @@ import 'package:http/http.dart' as http;
 class ApiCategoriesSource {
   Future<List<Category>> getCategories() async {
     try {
-     //todo faire un appel API pour aller chercher les catégories
+      final apiUrl = Uri.parse(FurnitureEndPoints.categoriesEndPoint);
+
+      final response = await http.get(apiUrl);
+
+      final responseBody = json.decode(response.body) as List;
+
+      List<Category> categories = responseBody.map((data) => Category.fromJson(data)).toList();
+      return categories;
 
     } catch (e) {
       throw Exception('Failed to load');
