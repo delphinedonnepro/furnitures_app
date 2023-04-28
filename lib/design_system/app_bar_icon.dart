@@ -1,9 +1,14 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:furnitures_app/constant.dart';
 
+import '../screens/home/camera_screen.dart';
+
 class AppBarIcon extends StatelessWidget {
-  const AppBarIcon({super.key});
+  const AppBarIcon({super.key, required this.firstCamera});
+
+  final CameraDescription firstCamera;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,15 @@ class AppBarIcon extends StatelessWidget {
             "assets/icons/scan.svg",
             height: 24,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TakePictureScreen(
+                    camera: firstCamera,
+                ),
+              ),
+            );
+          },
         ),
         const Center(
           child: Text(

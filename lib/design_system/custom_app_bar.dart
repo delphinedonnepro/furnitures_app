@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onPressed: () {},
       ),
       actions: <Widget>[
-        const AppBarIcon(),
+        //AppBarIcon(firstCamera: null,),
         SizedBox(width: SizeConfig.defaultSize),
       ],
     );
