@@ -22,7 +22,7 @@ class AppBarIcon extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => TakePictureScreen(
+                builder: (context) => CameraScreen(
                     camera: firstCamera,
                 ),
               ),

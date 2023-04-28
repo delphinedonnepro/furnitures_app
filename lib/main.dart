@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.white)
       ),
       home:  HomeScreen(firstCamera: firstCamera),
     );
